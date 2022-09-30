@@ -10,33 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_30_064702) do
+ActiveRecord::Schema.define(version: 0) do
 
-  create_table "members", charset: "utf8mb4", force: :cascade do |t|
-    t.string "name"
-    t.integer "gender"
-    t.bigint "team_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["team_id"], name: "index_members_on_team_id"
-  end
-
-  create_table "tasks", charset: "utf8mb4", force: :cascade do |t|
-    t.string "title"
-    t.datetime "due_at"
-    t.bigint "member_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id"], name: "index_tasks_on_member_id"
-  end
-
-  create_table "teams", charset: "utf8mb4", force: :cascade do |t|
-    t.string "name"
-    t.integer "registered_number"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  add_foreign_key "members", "teams"
-  add_foreign_key "tasks", "members"
 end
