@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+MySQL の実行計画やインデックスを学ぶためのサンプルアプリ
 
-Things you may want to cover:
+## データセットアップ
 
-* Ruby version
+大量のデータをインサートするのでMySQLの設定を変更します。
 
-* System dependencies
+```sql
+mysql -uroot -p
 
-* Configuration
+SET GLOBAL max_allowed_packet=524288000;
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+その後
+```bash
+$ bin/rails db:seed
+$ bin/rails db:data_for_explain
+```
